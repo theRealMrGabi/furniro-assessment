@@ -12,11 +12,16 @@ const config: Config = {
 				fur: {
 					'pink-100': '#faf4f4',
 					'grey-100': '#9F9F9F',
-					'gold-100': '#CDBA7B'
+					'gold-100': '#CDBA7B',
+					'gold-200': '#FFF9E5'
 				}
 			},
 			backgroundImage: {
 				main: "url('/images/bg-furniro.png')"
+			},
+			screens: {
+				xss: '320px',
+				xs: '375px'
 			}
 		}
 	},

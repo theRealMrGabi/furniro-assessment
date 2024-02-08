@@ -1,13 +1,32 @@
 import type { Metadata } from 'next'
 import { Plus_Jakarta_Sans } from 'next/font/google'
-import { Providers } from './Providers'
-import '@/styles/globals.scss'
+import { Toaster, ToasterProps } from 'react-hot-toast'
+
 import { Layout } from '@/components'
+import { Providers } from './Providers'
+
+import '@/styles/globals.scss'
 
 const plusJakartsSansFont = Plus_Jakarta_Sans({
 	subsets: ['latin'],
 	fallback: ['montserrat']
 })
+
+const toasterProps: ToasterProps = {
+	position: 'top-right',
+	toastOptions: {
+		style: {
+			fontSize: '0.875rem'
+		},
+		duration: 5000,
+		success: {
+			style: {
+				backgroundColor: '#DCFCE7',
+				color: '#14532D'
+			}
+		}
+	}
+}
 
 export const metadata: Metadata = {
 	title: 'Furniro E-commerce app',
@@ -23,7 +42,8 @@ export default function RootLayout({
 		<Providers>
 			<html lang='en'>
 				<body className={plusJakartsSansFont.className}>
-					<Layout heroBg>{children}</Layout>
+					<Toaster {...toasterProps} />
+					<Layout>{children}</Layout>
 				</body>
 			</html>
 		</Providers>
