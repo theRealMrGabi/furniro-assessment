@@ -21,6 +21,7 @@ export const Button = ({
 			className={classNames(
 				`w-fit border text-base py-2 rounded-lg ${className}`,
 				{
+					'opacity-40 cursor-not-allowed': rest.disabled,
 					'border-fur-gold-100 text-black hover:text-white hover:bg-fur-gold-100':
 						variant === 'primary',
 					'bg-fur-gold-100 text-white': variant === 'secondary'

@@ -10,11 +10,7 @@ export const BuyNowButton = () => {
 		<Button
 			variant='secondary'
 			className='w-full lg:w-[42%] mt-4'
-			onClick={(e) => {
-				e.preventDefault()
-				e.stopPropagation()
-				router.push('/cart')
-			}}
+			onClick={() => router.push('/cart')}
 		>
 			Buy Now
 		</Button>

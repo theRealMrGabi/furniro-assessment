@@ -6,9 +6,13 @@ import {
 import Image from 'next/image'
 import classNames from 'classnames'
 
-import { Button, CartQuantityControlButton, BuyNowButton } from '@/components'
+import {
+	CartQuantityControlButton,
+	BuyNowButton,
+	AddToCartButton
+} from '@/components'
 import { productQueryKeys, GetProductByIdApi } from '@/services'
-import { _formatNumber, AddItemTocart } from '@/utils'
+import { _formatNumber } from '@/utils'
 
 export default async function SingleProductPage({
 	params
@@ -34,7 +38,7 @@ export default async function SingleProductPage({
 							src={product.imageLocation}
 							alt={product.name}
 							fill
-							className='object-cover p-4'
+							className='object-contain p-4'
 							sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
 						/>
 					</div>
@@ -68,27 +72,9 @@ export default async function SingleProductPage({
 						</div>
 
 						<div className='flex items-center gap-4 mt-3'>
-							<CartQuantityControlButton
-								handleDecrease={async () => {
-									'use server'
-								}}
-								handleIncrease={async () => {
-									'use server'
-								}}
-								value={5}
-							/>
+							<CartQuantityControlButton product={product} />
 
-							<Button
-								className='capitalize font-semibold w-fit px-4 xs:px-10 py-2 whitespace-nowrap'
-								onClick={async (e) => {
-									'use server'
-									e.preventDefault()
-									e.stopPropagation()
-									AddItemTocart(product)
-								}}
-							>
-								Add to Cart
-							</Button>
+							<AddToCartButton product={product} />
 						</div>
 
 						<BuyNowButton />

@@ -1,12 +1,16 @@
 'use client'
+
 import Link from 'next/link'
 import Image from 'next/image'
 
 import { Product } from '@/interface'
-import { _formatNumber, AddItemTocart } from '@/utils'
+import { _formatNumber } from '@/utils'
+import { useCartStore } from '@/store'
 import { Button } from '.'
 
 export const ProductCard = ({ product }: { product: Product }) => {
+	const addItemTocart = useCartStore((state) => state.addItemToCart)
+
 	return (
 		<Link
 			href={`/product/${product.id}`}
@@ -17,7 +21,7 @@ export const ProductCard = ({ product }: { product: Product }) => {
 					src={product.imageLocation}
 					alt={product.name}
 					fill
-					className='object-cover transition-transform duration-300 transform ease-in-out group-hover:scale-110'
+					className='object-contain transition-transform duration-300 transform ease-in-out group-hover:scale-110'
 					sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
 				/>
 			</div>
@@ -35,7 +39,7 @@ export const ProductCard = ({ product }: { product: Product }) => {
 				onClick={(e) => {
 					e.preventDefault()
 					e.stopPropagation()
-					AddItemTocart(product)
+					addItemTocart(product)
 				}}
 			>
 				Add to cart

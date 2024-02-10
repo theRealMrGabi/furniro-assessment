@@ -9,3 +9,7 @@ export interface Product {
 	imageLocation: string
 	status: string
 }
+
+export interface Cart extends Product {
+	quantityInCart: number
+}
