@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 import { Product } from '@/interface'
-import { _formatNumber } from '@/utils'
+import { _formatNumber, AddItemTocart } from '@/utils'
 import { Button } from '.'
 
 export const ProductCard = ({ product }: { product: Product }) => {
@@ -35,6 +35,7 @@ export const ProductCard = ({ product }: { product: Product }) => {
 				onClick={(e) => {
 					e.preventDefault()
 					e.stopPropagation()
+					AddItemTocart(product)
 				}}
 			>
 				Add to cart

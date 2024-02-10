@@ -4,12 +4,11 @@ import {
 	QueryClient
 } from '@tanstack/react-query'
 import Image from 'next/image'
-import { PlusIcon, MinusIcon } from '@heroicons/react/16/solid'
 import classNames from 'classnames'
 
+import { Button, CartQuantityControlButton, BuyNowButton } from '@/components'
 import { productQueryKeys, GetProductByIdApi } from '@/services'
-import { _formatNumber } from '@/utils'
-import { Button } from '@/components'
+import { _formatNumber, AddItemTocart } from '@/utils'
 
 export default async function SingleProductPage({
 	params
@@ -69,20 +68,30 @@ export default async function SingleProductPage({
 						</div>
 
 						<div className='flex items-center gap-4 mt-3'>
-							<div className='flex justify-between items-center gap-x-4 border border-black rounded-lg w-full lg:w-fit px-4 py-2'>
-								<MinusIcon className='w-5 h-5 cursor-pointer' />
-								<p>5</p>
-								<PlusIcon className='w-5 h-5 cursor-pointer' />
-							</div>
+							<CartQuantityControlButton
+								handleDecrease={async () => {
+									'use server'
+								}}
+								handleIncrease={async () => {
+									'use server'
+								}}
+								value={5}
+							/>
 
-							<Button className='capitalize font-semibold w-fit px-4 xs:px-10 py-2 whitespace-nowrap'>
+							<Button
+								className='capitalize font-semibold w-fit px-4 xs:px-10 py-2 whitespace-nowrap'
+								onClick={async (e) => {
+									'use server'
+									e.preventDefault()
+									e.stopPropagation()
+									AddItemTocart(product)
+								}}
+							>
 								Add to Cart
 							</Button>
 						</div>
 
-						<Button variant='secondary' className='w-full lg:w-[42%] mt-4'>
-							Buy Now
-						</Button>
+						<BuyNowButton />
 					</div>
 				</div>
 			</div>

@@ -1,4 +1,5 @@
-export { Button } from './Button'
+export * from './buttons'
+export { CartQuantityControlButton } from './buttons/CartQuantityControlButton'
 export { Features } from './Features'
 export { Footer } from './Footer'
 export { Layout } from './Layout'

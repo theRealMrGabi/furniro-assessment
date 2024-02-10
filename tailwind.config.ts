@@ -13,7 +13,8 @@ const config: Config = {
 					'pink-100': '#faf4f4',
 					'grey-100': '#9F9F9F',
 					'gold-100': '#CDBA7B',
-					'gold-200': '#FFF9E5'
+					'gold-200': '#FFF9E5',
+					'gold-300': '#b87300'
 				}
 			},
 			backgroundImage: {
