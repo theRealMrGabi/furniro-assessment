@@ -1,36 +1,49 @@
 'use client'
+
 import Link from 'next/link'
 import Image from 'next/image'
 
-export const ProductCard = () => {
+import { Product } from '@/interface'
+import { _formatNumber } from '@/utils'
+import { useCartStore } from '@/store'
+import { Button } from '.'
+
+export const ProductCard = ({ product }: { product: Product }) => {
+	const addItemTocart = useCartStore((state) => state.addItemToCart)
+
 	return (
 		<Link
-			href='#'
+			href={`/product/${product.id}`}
 			className='hover:border p-3 rounded-lg hover:shadow-lg group'
 		>
-			<div className='relative aspect-video w-full'>
+			<div className='relative aspect-video w-full mt-2'>
 				<Image
-					src='/images/chair.png'
-					alt='Product'
+					src={product.imageLocation}
+					alt={product.name}
 					fill
-					className='object-cover transition-transform duration-300 transform ease-in-out group-hover:scale-110'
+					className='object-contain transition-transform duration-300 transform ease-in-out group-hover:scale-110'
+					sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
 				/>
 			</div>
 
 			<div className='mt-4'>
-				<h6 className='text-sm'>Product title</h6>
-				<p className='font-semibold text-lg pt-1'>$50,000</p>
+				<h6 className='text-sm'>{product.name}</h6>
+				<p className='font-semibold text-lg pt-1'>
+					{product.currencySymbol}
+					{_formatNumber(product.price)}
+				</p>
 			</div>
 
-			<button
-				className='w-full border border-fur-gold-100 mt-2 uppercase text-base font-semibold py-2 rounded-md text-black hover:text-white group-hover:bg-fur-gold-100 hover-animate lg:invisible group-hover:visible'
+			<Button
+				className='w-full uppercase font-semibold group-hover:bg-fur-gold-100 lg:invisible group-hover:visible group-hover:text-white mt-2'
 				onClick={(e) => {
 					e.preventDefault()
 					e.stopPropagation()
+					addItemTocart(product)
 				}}
 			>
 				Add to cart
-			</button>
+			</Button>
 		</Link>
 	)
 }

@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# E-Commerce Application (assessment)
 
-## Getting Started
+> Welcome to Furniro (not real name), an E-commerce assessment web app for managing e-commerce products. The basic functionalities of the app include Fetching and viewing list of products, viewing a single product by its ID, adding a new product, adding item to cart, updating cart item quantity and removing item from cart. This project utilizes technologies listed below to deliver a feature-rich e-commerce solution
 
-First, run the development server:
+## Getting Started (usage)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+The following steps must be strictly adhered to in other to successfully run the project.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. Ensure Node.JS is installed on your local machine, and by extension npm also.
+2. Clone the [repository](https://github.com/theRealMrGabi/furniro-assessment).
+3. Open project repo via terminal or code editor and run `npm install` to install project dependencies.
+4. Create a `.env.local` file in the root of the project, and copy the values from `.env.example` into the newly created `.env.local` file.
+5. Run `npm run dev` to start the application in development mode.
+6. Navigate to [http://localhost:3000](http://localhost:3000) in your browser to access the application.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Plus_Jakarta_Sans, a custom Google Font.
 
-## Learn More
+## Assumptions
 
-To learn more about Next.js, take a look at the following resources:
+- Basic understanding of Javascript, Typescript, NodeJS, ReactJS and NextJS
+- Since no data fetching library/concept was mentioned, i opted to go for `@tanstack/react-query`.
+- NextJS app router was used over page router
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Technologies and packages used
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- TypeScript
+- **@heroicons/react**: used for icons so as not to add extra bundle of image assets to the project
+- **axios**: a popular JavaScript library used for making HTTP requests from both the browser and Node.js environments. It provides a simple and intuitive API for performing asynchronous operations like fetching data from APIs or submitting data to servers.
+- **@tanstack/react-query**: a state management library for React applications, providing hooks for fetching, caching, and updating asynchronous data. It simplifies complex data-handling tasks with features like automatic caching, background data fetching, and mutation functions.
+- **classnames**: A simple JavaScript utility for conditionally joining classNames together.
+- **react-hook-form**: a lightweight React library for managing form state and validation with minimal boilerplate. It offers easy-to-use hooks for handling form data, validation rules, and error messages, promoting a cleaner and more efficient approach to building forms in React applications.
+- **@hookform/resolvers**: an extension package for react-hook-form, providing built-in validation resolver functions for handling complex validation logic such as Yup, Joi, or custom validation schemas. It seamlessly integrates with react-hook-form to simplify form validation and error handling in React applications.
+- **react-hot-toast**: a lightweight, customizable notification library for React applications, offering easy-to-use hooks for displaying toast notifications.
+- **Yup**: a schema validation library for JavaScript and TypeScript, widely used for validating objects, forms, and data structures.
+- **Zustand**: a small, fast, and reactive state management library for React applications. It offers a simple and intuitive API for creating and managing global or local state with minimal boilerplate, promoting a more straightforward and efficient approach to state management in React components
 
-## Deploy on Vercel
+## Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Vercel is my choice of deployment for this project. Instructions on how to deploy a NextJS project on vercel can be found on [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) and [Next.js deployment documentation](https://nextjs.org/docs/deployment)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Contact
+
+Author and Developer
+
+- [@theRealMrGabi](https://www.github.com/therealmrgabi) - GitHub
+- [@theRealMrGabi](https://www.twitter.com/therealmrgabi) - Twitter
+- [@Adegabi Ibrahim](https://www.linkedin.com/in/ibrahimadegabi/) - LinkedIn
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
