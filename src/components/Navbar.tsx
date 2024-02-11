@@ -16,9 +16,12 @@ export const Navbar = () => {
 			</Link>
 
 			<div className='flex items-center gap-5'>
-				<PlusCircleIcon className='w-7 h-7 cursor-pointer' />
+				<Link href='/product/create'>
+					<PlusCircleIcon className='w-7 h-7 cursor-pointer' />
+				</Link>
+
 				<Link className='relative' href='/cart'>
-					<ShoppingCartIcon className='w-6 h-6 cursor-pointer' />
+					<ShoppingCartIcon className='w-6 h-6' />
 					{!!cart?.length && (
 						<div className='absolute bg-black text-white rounded-full w-5 h-5 text-sm text-center top-[-0.725rem] right-[-0.875rem]'>
 							{cart.length}

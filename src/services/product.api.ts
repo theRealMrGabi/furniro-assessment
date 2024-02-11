@@ -1,5 +1,5 @@
 import { _axios } from '.'
-import { Product } from '@/interface'
+import { Product, AddProductPayload } from '@/interface'
 
 export const productQueryKeys = Object.freeze({
 	getProducts: 'products',
@@ -18,6 +18,18 @@ export const GetProductsApi = async () => {
 export const GetProductByIdApi = async (productId: string) => {
 	try {
 		const response: Product = await _axios.get(`productBundles/${productId}`)
+		return response
+	} catch (error) {
+		throw error
+	}
+}
+
+export const AddProductApi = async (payload: AddProductPayload) => {
+	try {
+		const response = await _axios.post({
+			url: 'productBundles',
+			payload
+		})
 		return response
 	} catch (error) {
 		throw error

@@ -19,7 +19,7 @@ export default function Cart() {
 	)
 
 	return (
-		<div>
+		<>
 			<Hero pageTitle='Shopping cart' />
 			<div className='px-4 md:px-8 lg:px-16 py-[5%] flex flex-col md:flex-row gap-5'>
 				{!cart.length ? (
@@ -120,6 +120,6 @@ export default function Cart() {
 					</>
 				)}
 			</div>
-		</div>
+		</>
 	)
 }
